@@ -31,6 +31,13 @@
   transform: translateY(-4px);
 }
 
+.project-card--active {
+  border-color: rgba(56, 189, 248, 0.62);
+  background:
+    linear-gradient(180deg, rgba(56, 189, 248, 0.08), rgba(255, 255, 255, 0)),
+    rgba(17, 24, 39, 0.92);
+}
+
 .project-card__top {
   display: flex;
   align-items: center;
@@ -94,6 +101,7 @@
   border-radius: var(--radius);
   background: rgba(56, 189, 248, 0.1);
   color: #e0f2fe;
+  cursor: pointer;
   font-weight: 900;
   transition:
     background 180ms ease,
@@ -107,9 +115,680 @@
   transform: translateY(-2px);
 }
 
+.projects__preview {
+  overflow: hidden;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid rgba(56, 189, 248, 0.26);
+  border-radius: var(--radius);
+  background: rgba(15, 23, 42, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.projects__preview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(2, 6, 23, 0.46);
+}
+
+.projects__preview-bar div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.projects__preview-bar span {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.projects__preview-bar strong {
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.projects__preview-bar button {
+  min-height: 2.4rem;
+  padding: 0 0.85rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: var(--radius);
+  background: rgba(15, 23, 42, 0.72);
+  color: #e2e8f0;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.example-page {
+  min-height: 720px;
+}
+
+.example-page button,
+.example-page input {
+  font: inherit;
+}
+
+.example-page button {
+  cursor: pointer;
+}
+
+.example-pill {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 0.95rem;
+  padding: 0.42rem 0.72rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.example-page--artisan {
+  background:
+    linear-gradient(135deg, rgba(22, 101, 52, 0.12), transparent 32rem),
+    #fbfbf7;
+  color: #1f2933;
+}
+
+.artisan-site__nav,
+.booking-app__nav,
+.saas-site__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem clamp(1rem, 3vw, 2rem);
+}
+
+.artisan-site__nav {
+  border-bottom: 1px solid rgba(31, 41, 51, 0.12);
+}
+
+.artisan-site__nav strong {
+  color: #16351f;
+  font-size: 1.15rem;
+}
+
+.artisan-site__nav nav,
+.saas-site__nav nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: #52616b;
+  font-weight: 800;
+}
+
+.artisan-site__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 4vw, 3rem);
+}
+
+.artisan-site__hero .example-pill {
+  background: rgba(22, 101, 52, 0.11);
+  color: #166534;
+}
+
+.artisan-site__hero h3 {
+  max-width: 760px;
+  margin: 0;
+  color: #15351f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  line-height: 0.98;
+}
+
+.artisan-site__hero p:not(.example-pill) {
+  max-width: 620px;
+  margin: 1rem 0 0;
+  color: #52616b;
+  font-size: 1.05rem;
+}
+
+.artisan-site__hero button,
+.saas-site__actions button:first-child {
+  min-height: 3rem;
+  margin-top: 1.4rem;
+  padding: 0 1.1rem;
+  border-radius: var(--radius);
+  background: #d97706;
+  color: #fffaf0;
+  font-weight: 900;
+}
+
+.artisan-site__mosaic {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  grid-template-rows: 12rem 9rem;
+  gap: 0.8rem;
+}
+
+.artisan-site__mosaic span {
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(22, 101, 52, 0.58), rgba(217, 119, 6, 0.34)),
+    #334155;
+  box-shadow: 0 20px 55px rgba(31, 41, 51, 0.16);
+}
+
+.artisan-site__mosaic span:first-child {
+  grid-row: 1 / -1;
+}
+
+.artisan-site__services,
+.saas-site__features,
+.saas-site__pricing {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  padding: 0 clamp(1rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+}
+
+.artisan-site__services article {
+  padding: 1.1rem;
+  border: 1px solid rgba(31, 41, 51, 0.1);
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(31, 41, 51, 0.08);
+}
+
+.artisan-site__services span {
+  color: #d97706;
+  font-weight: 900;
+}
+
+.artisan-site__services h4,
+.saas-site__features h4 {
+  margin: 0.8rem 0 0.35rem;
+  color: #111827;
+  font-size: 1.08rem;
+}
+
+.artisan-site__services p,
+.saas-site__features p {
+  margin: 0;
+  color: #52616b;
+}
+
+.artisan-site__gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  padding: 0 clamp(1rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+}
+
+.artisan-site__gallery div {
+  min-height: 8rem;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #2f4f3a, #c7833a);
+}
+
+.artisan-site__gallery blockquote {
+  display: grid;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: #15351f;
+  color: #f8fafc;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+}
+
+.example-page--dashboard {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  background: #07111f;
+  color: #e5eefb;
+}
+
+.dashboard-app__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.4rem;
+  border-right: 1px solid rgba(148, 163, 184, 0.14);
+  background: #081526;
+}
+
+.dashboard-app__sidebar strong {
+  margin-bottom: 1.25rem;
+  color: #f8fafc;
+  font-size: 1.2rem;
+}
+
+.dashboard-app__sidebar span {
+  padding: 0.78rem 0.85rem;
+  border-radius: var(--radius);
+  color: #9fb2c8;
+  font-weight: 800;
+}
+
+.dashboard-app__sidebar span:nth-child(2) {
+  background: rgba(56, 189, 248, 0.12);
+  color: #7dd3fc;
+}
+
+.dashboard-app__main {
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.dashboard-app__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-app__topbar p {
+  margin: 0;
+  color: #7dd3fc;
+  font-weight: 900;
+}
+
+.dashboard-app__topbar h3 {
+  margin: 0.2rem 0 0;
+  color: #f8fafc;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.dashboard-app__topbar button {
+  min-height: 2.8rem;
+  padding: 0 1rem;
+  border-radius: var(--radius);
+  background: #38bdf8;
+  color: #06111f;
+  font-weight: 900;
+}
+
+.dashboard-app__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-app__stats article,
+.dashboard-app__chart,
+.dashboard-app__table div {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: var(--radius);
+  background: #0d1b2f;
+}
+
+.dashboard-app__stats article {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem;
+}
+
+.dashboard-app__stats span,
+.dashboard-app__stats small,
+.dashboard-app__table small {
+  color: #9fb2c8;
+  font-weight: 800;
+}
+
+.dashboard-app__stats strong {
+  color: #f8fafc;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.dashboard-app__workspace {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.86fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.dashboard-app__chart {
+  display: flex;
+  align-items: end;
+  gap: 0.8rem;
+  min-height: 20rem;
+  padding: 1rem;
+}
+
+.dashboard-app__chart span {
+  flex: 1;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, #22c55e, #38bdf8);
+}
+
+.dashboard-app__table {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.dashboard-app__table div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(7rem, 0.65fr) auto;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.9rem;
+}
+
+.dashboard-app__table span,
+.dashboard-app__table strong {
+  color: #f8fafc;
+  font-weight: 900;
+}
+
+.example-page--booking {
+  background:
+    radial-gradient(circle at top right, rgba(124, 58, 237, 0.12), transparent 18rem),
+    #f7fbff;
+  color: #18212f;
+}
+
+.booking-app__nav {
+  border-bottom: 1px solid rgba(24, 33, 47, 0.1);
+}
+
+.booking-app__nav strong {
+  color: #0f766e;
+  font-size: 1.2rem;
+}
+
+.booking-app__nav button,
+.booking-app__form button {
+  min-height: 2.7rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  background: #0f766e;
+  color: #ecfeff;
+  font-weight: 900;
+}
+
+.booking-app__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.5fr);
+  gap: 1rem;
+  align-items: center;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
+}
+
+.booking-app__hero .example-pill {
+  background: rgba(15, 118, 110, 0.1);
+  color: #0f766e;
+}
+
+.booking-app__hero h3 {
+  max-width: 760px;
+  margin: 0;
+  color: #18212f;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  line-height: 1.02;
+}
+
+.booking-app__hero p:not(.example-pill) {
+  max-width: 620px;
+  color: #556275;
+  font-size: 1.05rem;
+}
+
+.booking-app__card {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1.4rem;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: 0 20px 48px rgba(15, 118, 110, 0.12);
+}
+
+.booking-app__card span,
+.booking-app__card small {
+  color: #64748b;
+  font-weight: 800;
+}
+
+.booking-app__card strong {
+  color: #0f766e;
+  font-size: 1.8rem;
+}
+
+.booking-app__planner {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0 clamp(1rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+}
+
+.booking-app__services,
+.booking-app__calendar,
+.booking-app__slots,
+.booking-app__form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.booking-app__services button,
+.booking-app__calendar span,
+.booking-app__slots button,
+.booking-app__form input {
+  min-height: 3rem;
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: var(--radius);
+  background: #ffffff;
+  color: #18212f;
+  font-weight: 900;
+}
+
+.booking-app__services button {
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.booking-app__services .is-active,
+.booking-app__calendar .is-selected,
+.booking-app__slots .is-active {
+  border-color: rgba(15, 118, 110, 0.42);
+  background: #ccfbf1;
+  color: #0f766e;
+}
+
+.booking-app__calendar,
+.booking-app__slots {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.booking-app__calendar span {
+  display: inline-grid;
+  place-items: center;
+}
+
+.booking-app__slots {
+  grid-column: 2;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.booking-app__form {
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.booking-app__form input {
+  padding: 0 1rem;
+  font-weight: 700;
+}
+
+.example-page--saas {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(251, 113, 133, 0.18), transparent 16rem),
+    radial-gradient(circle at 80% 16%, rgba(250, 204, 21, 0.22), transparent 18rem),
+    #fff7f2;
+  color: #191026;
+}
+
+.saas-site__nav {
+  border-bottom: 1px solid rgba(25, 16, 38, 0.1);
+}
+
+.saas-site__nav strong {
+  color: #7c2d12;
+  font-size: 1.2rem;
+}
+
+.saas-site__nav button,
+.saas-site__actions button {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: var(--radius);
+  font-weight: 900;
+}
+
+.saas-site__nav button,
+.saas-site__actions button:first-child {
+  background: #191026;
+  color: #fff7f2;
+}
+
+.saas-site__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 4vw, 3rem);
+}
+
+.saas-site__hero .example-pill {
+  background: #fef08a;
+  color: #7c2d12;
+}
+
+.saas-site__hero h3 {
+  max-width: 820px;
+  margin: 0;
+  color: #191026;
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  line-height: 0.98;
+}
+
+.saas-site__hero p:not(.example-pill) {
+  max-width: 650px;
+  color: #5b5068;
+  font-size: 1.05rem;
+}
+
+.saas-site__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.3rem;
+}
+
+.saas-site__actions button:last-child {
+  border: 1px solid rgba(25, 16, 38, 0.18);
+  background: #ffffff;
+  color: #191026;
+}
+
+.saas-site__product {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 2px solid #191026;
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: 12px 12px 0 #facc15;
+}
+
+.saas-site__product div:not(.saas-site__bars) {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: #fff7f2;
+}
+
+.saas-site__product span {
+  color: #5b5068;
+  font-weight: 900;
+}
+
+.saas-site__product strong {
+  color: #191026;
+  font-size: 2.2rem;
+}
+
+.saas-site__bars {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.saas-site__bars span {
+  display: block;
+  height: 1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fb7185, #facc15);
+}
+
+.saas-site__bars span:nth-child(2) {
+  width: 76%;
+}
+
+.saas-site__bars span:nth-child(3) {
+  width: 58%;
+}
+
+.saas-site__features article,
+.saas-site__pricing article {
+  border: 1px solid rgba(25, 16, 38, 0.12);
+  border-radius: var(--radius);
+  background: #ffffff;
+  padding: 1.1rem;
+}
+
+.saas-site__pricing {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-top: 0;
+}
+
+.saas-site__pricing article {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.saas-site__pricing strong {
+  color: #191026;
+  font-size: 1.2rem;
+}
+
+.saas-site__pricing span {
+  color: #be123c;
+  font-weight: 900;
+}
+
 @media (max-width: 1100px) {
   .projects__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .artisan-site__hero,
+  .booking-app__hero,
+  .booking-app__planner,
+  .dashboard-app__workspace,
+  .saas-site__hero {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-app__slots {
+    grid-column: auto;
+  }
+
+  .booking-app__form {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -120,5 +799,69 @@
 
   .project-card {
     min-height: auto;
+  }
+
+  .projects__preview-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .projects__preview-bar button {
+    width: 100%;
+  }
+
+  .example-page {
+    min-height: auto;
+  }
+
+  .artisan-site__nav,
+  .booking-app__nav,
+  .saas-site__nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .artisan-site__nav nav,
+  .saas-site__nav nav {
+    gap: 0.65rem;
+  }
+
+  .artisan-site__mosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 7rem);
+  }
+
+  .artisan-site__mosaic span:first-child {
+    grid-row: auto;
+  }
+
+  .artisan-site__services,
+  .artisan-site__gallery,
+  .dashboard-app__stats,
+  .saas-site__features,
+  .saas-site__pricing {
+    grid-template-columns: 1fr;
+  }
+
+  .example-page--dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-app__sidebar {
+    border-right: 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .dashboard-app__table div {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-app__calendar,
+  .booking-app__slots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .saas-site__product {
+    box-shadow: 7px 7px 0 #facc15;
   }
 }

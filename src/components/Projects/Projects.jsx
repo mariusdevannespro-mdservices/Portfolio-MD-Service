@@ -1,7 +1,15 @@
+import { useMemo, useState } from 'react';
 import { projects } from '../../data/projects.js';
+import ProjectExamples from './ProjectExamples.jsx';
 import './Projects.css';
 
 function Projects() {
+  const [activeProjectId, setActiveProjectId] = useState(null);
+  const activeProject = useMemo(
+    () => projects.find((project) => project.id === activeProjectId),
+    [activeProjectId],
+  );
+
   return (
     <section className="projects section" id="projets">
       <div className="section-container">
@@ -16,7 +24,12 @@ function Projects() {
 
         <div className="projects__grid">
           {projects.map((project) => (
-            <article className="project-card" key={project.title}>
+            <article
+              className={`project-card ${
+                activeProjectId === project.id ? 'project-card--active' : ''
+              }`}
+              key={project.title}
+            >
               <div className="project-card__top">
                 <span className="project-card__badge">Démo</span>
                 <span className="project-card__line" />
@@ -28,12 +41,33 @@ function Projects() {
                   <span key={technology}>{technology}</span>
                 ))}
               </div>
-              <a className="project-card__button" href={`#${project.id}`}>
+              <button
+                className="project-card__button"
+                type="button"
+                aria-controls="project-preview"
+                aria-expanded={activeProjectId === project.id}
+                onClick={() => setActiveProjectId(project.id)}
+              >
                 Voir le projet
-              </a>
+              </button>
             </article>
           ))}
         </div>
+
+        {activeProject && (
+          <div className="projects__preview" id="project-preview">
+            <div className="projects__preview-bar">
+              <div>
+                <span>Aperçu complet</span>
+                <strong>{activeProject.title}</strong>
+              </div>
+              <button type="button" onClick={() => setActiveProjectId(null)}>
+                Fermer
+              </button>
+            </div>
+            <ProjectExamples projectId={activeProject.id} />
+          </div>
+        )}
       </div>
     </section>
   );
