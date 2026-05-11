@@ -40,9 +40,21 @@
     linear-gradient(180deg, rgba(245, 241, 232, 0.08), rgba(245, 241, 232, 0.03)),
     rgba(21, 25, 38, 0.92);
   box-shadow: var(--shadow);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.contact__form:hover {
+  border-color: rgba(45, 212, 191, 0.32);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.32);
+  transform: translateY(-0.3rem);
 }
 
 .contact__form-head {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,6 +64,15 @@
   border-radius: var(--radius);
   background: var(--paper);
   color: var(--ink);
+}
+
+.contact__form-head::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.54), transparent);
+  content: '';
+  transform: translateX(-120%);
+  animation: line-scan 4.8s ease-in-out infinite;
 }
 
 .contact__form-head span {

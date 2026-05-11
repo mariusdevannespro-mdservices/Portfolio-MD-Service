@@ -73,7 +73,7 @@
 .skills__badge:hover {
   background: var(--paper);
   color: var(--ink);
-  transform: translateY(-3px);
+  transform: translateY(-4px) rotate(-1deg);
 }
 
 @media (max-width: 900px) {

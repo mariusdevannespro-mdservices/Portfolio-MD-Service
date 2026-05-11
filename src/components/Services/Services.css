@@ -67,6 +67,8 @@
   width: 0.45rem;
   background: var(--cyan);
   content: '';
+  transform-origin: bottom;
+  transition: transform 260ms ease;
 }
 
 .service-card--indigo::after {
@@ -85,6 +87,10 @@
   border-color: rgba(17, 24, 39, 0.32);
   box-shadow: 0 26px 60px rgba(17, 24, 39, 0.13);
   transform: translateX(0.35rem);
+}
+
+.service-card:hover::after {
+  transform: scaleY(0.72);
 }
 
 .service-card__index {

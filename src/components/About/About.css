@@ -42,6 +42,7 @@
   height: 26%;
   background: rgba(45, 212, 191, 0.2);
   content: '';
+  animation: portrait-sweep 8s ease-in-out infinite;
   transform: rotate(-18deg);
 }
 
@@ -116,11 +117,30 @@
   border-radius: var(--radius);
   background: var(--ink);
   color: var(--text);
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.about__method li:hover {
+  background: #141827;
+  transform: translateY(-0.25rem);
 }
 
 .about__method li strong {
   color: var(--mint);
   font-size: 0.82rem;
+}
+
+@keyframes portrait-sweep {
+  0%,
+  100% {
+    right: -20%;
+  }
+
+  50% {
+    right: 8%;
+  }
 }
 
 .about__method li p {

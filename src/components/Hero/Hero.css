@@ -15,6 +15,7 @@
     repeating-linear-gradient(90deg, rgba(245, 241, 232, 0.04) 0 1px, transparent 1px 7rem),
     repeating-linear-gradient(0deg, rgba(245, 241, 232, 0.035) 0 1px, transparent 1px 7rem);
   content: '';
+  animation: hero-grid-drift 18s linear infinite;
   pointer-events: none;
 }
 
@@ -31,6 +32,25 @@
 .hero__content {
   display: grid;
   gap: 1.35rem;
+}
+
+.hero__eyebrow,
+.hero h1,
+.hero__subtitle,
+.hero__actions {
+  animation: reveal-up 760ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero h1 {
+  animation-delay: 110ms;
+}
+
+.hero__subtitle {
+  animation-delay: 220ms;
+}
+
+.hero__actions {
+  animation-delay: 330ms;
 }
 
 .hero__eyebrow {
@@ -79,6 +99,7 @@
     linear-gradient(135deg, rgba(245, 241, 232, 0.11), transparent 34%),
     rgba(21, 25, 38, 0.86);
   box-shadow: var(--shadow);
+  animation: float-panel 7s ease-in-out infinite;
 }
 
 .hero__workspace::before {
@@ -90,6 +111,7 @@
   background: rgba(45, 212, 191, 0.09);
   content: '';
   transform: skewX(-12deg);
+  animation: workspace-glow 5.5s ease-in-out infinite;
 }
 
 .hero__workspace-top {
@@ -130,6 +152,16 @@
   border: 1px solid rgba(245, 241, 232, 0.12);
   border-radius: var(--radius);
   background: rgba(13, 15, 22, 0.52);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.hero__tile:hover {
+  border-color: rgba(45, 212, 191, 0.42);
+  background: rgba(13, 15, 22, 0.72);
+  transform: translateY(-0.25rem);
 }
 
 .hero__tile--large {
@@ -168,18 +200,23 @@
   height: 0.7rem;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--cyan), var(--mint));
+  transform-origin: left;
+  animation: timeline-pulse 2.8s ease-in-out infinite;
 }
 
 .hero__timeline span:nth-child(2) {
   background: linear-gradient(90deg, var(--mint), var(--green));
+  animation-delay: 160ms;
 }
 
 .hero__timeline span:nth-child(3) {
   background: linear-gradient(90deg, var(--amber), var(--coral));
+  animation-delay: 320ms;
 }
 
 .hero__timeline span:nth-child(4) {
   background: linear-gradient(90deg, var(--violet), var(--cyan));
+  animation-delay: 480ms;
 }
 
 .hero__stats {
@@ -196,6 +233,16 @@
   border: 1px solid rgba(245, 241, 232, 0.12);
   border-radius: var(--radius);
   background: rgba(245, 241, 232, 0.055);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.hero__stats div:hover {
+  border-color: rgba(245, 241, 232, 0.28);
+  background: rgba(245, 241, 232, 0.085);
+  transform: translateY(-0.2rem);
 }
 
 .hero__stats span {
@@ -203,6 +250,40 @@
   font-size: 0.78rem;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+@keyframes hero-grid-drift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 7rem 0, 0 7rem;
+  }
+}
+
+@keyframes workspace-glow {
+  0%,
+  100% {
+    opacity: 0.62;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes timeline-pulse {
+  0%,
+  100% {
+    transform: scaleX(0.72);
+    opacity: 0.62;
+  }
+
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 .hero__stats strong {
