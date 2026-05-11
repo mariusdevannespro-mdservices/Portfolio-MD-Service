@@ -1,3 +1,4 @@
+import HeroThreeScene from './HeroThreeScene.jsx';
 import './Hero.css';
 
 const heroStats = [
@@ -9,6 +10,7 @@ const heroStats = [
 function Hero() {
   return (
     <section className="hero" id="accueil">
+      <HeroThreeScene />
       <div className="hero__container">
         <div className="hero__content">
           <p className="hero__eyebrow">MD Service · Studio web indépendant</p>
