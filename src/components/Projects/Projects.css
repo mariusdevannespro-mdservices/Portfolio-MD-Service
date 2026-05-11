@@ -84,14 +84,27 @@
 }
 
 .project-card__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 2.75rem;
   margin-top: 1.25rem;
+  border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: var(--radius);
-  background: rgba(148, 163, 184, 0.12);
-  color: rgba(226, 232, 240, 0.7);
-  cursor: not-allowed;
+  background: rgba(56, 189, 248, 0.1);
+  color: #e0f2fe;
   font-weight: 900;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.project-card__button:hover {
+  border-color: rgba(56, 189, 248, 0.66);
+  background: rgba(56, 189, 248, 0.18);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 1100px) {

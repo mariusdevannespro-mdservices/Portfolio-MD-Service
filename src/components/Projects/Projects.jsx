@@ -28,9 +28,9 @@ function Projects() {
                   <span key={technology}>{technology}</span>
                 ))}
               </div>
-              <button className="project-card__button" type="button" disabled>
+              <a className="project-card__button" href={`#${project.id}`}>
                 Voir le projet
-              </button>
+              </a>
             </article>
           ))}
         </div>
