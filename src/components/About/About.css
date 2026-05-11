@@ -1,93 +1,152 @@
 .about {
-  background:
-    linear-gradient(120deg, rgba(99, 102, 241, 0.11), transparent 36rem),
-    #0f172a;
+  background: var(--paper-soft);
+  color: var(--text-dark);
 }
 
 .about__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  grid-template-columns: minmax(280px, 0.58fr) minmax(0, 1fr);
   gap: clamp(2rem, 6vw, 5rem);
-  align-items: start;
+  align-items: stretch;
 }
 
-.about__content p:not(.section-kicker) {
-  max-width: 730px;
-  margin: 1.1rem 0 0;
-  color: #cbd5e1;
-  font-size: clamp(1.02rem, 1.7vw, 1.16rem);
+.about__portrait {
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: 31rem;
+  padding: 1.4rem;
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(13, 15, 22, 0.88), rgba(13, 15, 22, 0.7)),
+    linear-gradient(135deg, var(--cyan), var(--coral));
+  color: var(--paper);
+  overflow: hidden;
+  box-shadow: 0 26px 60px rgba(17, 24, 39, 0.16);
+}
+
+.about__portrait::before {
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(245, 241, 232, 0.18);
+  border-radius: var(--radius);
+  content: '';
+}
+
+.about__portrait::after {
+  position: absolute;
+  top: 18%;
+  right: -20%;
+  width: 70%;
+  height: 26%;
+  background: rgba(45, 212, 191, 0.2);
+  content: '';
+  transform: rotate(-18deg);
+}
+
+.about__portrait span {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 950;
+  line-height: 0.8;
+}
+
+.about__portrait strong {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.4rem;
+  font-size: 2rem;
+}
+
+.about__portrait small {
+  position: relative;
+  z-index: 1;
+  color: #dbeafe;
+  font-weight: 850;
+}
+
+.about__content {
+  display: grid;
+  align-content: center;
+  gap: 1.1rem;
+}
+
+.about .section-title {
+  color: var(--text-dark);
+}
+
+.about__content > p:not(.section-kicker) {
+  max-width: 790px;
+  margin: 0;
+  color: var(--muted-dark);
+  font-size: clamp(1.02rem, 1.6vw, 1.16rem);
 }
 
 .about__method {
-  padding: 1.2rem;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  margin-top: 0.7rem;
+  padding: 1rem;
+  border: 1px solid rgba(17, 24, 39, 0.14);
   border-radius: var(--radius);
-  background: rgba(17, 24, 39, 0.84);
-  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.56);
 }
 
-.about__method-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.35rem 0 1rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-}
-
-.about__method-heading span {
-  color: var(--text);
-  font-size: 1.05rem;
-  font-weight: 900;
-}
-
-.about__method-heading strong {
-  padding: 0.4rem 0.62rem;
-  border-radius: 999px;
-  background: rgba(56, 189, 248, 0.11);
-  color: #7dd3fc;
-  font-size: 0.82rem;
+.about__method > span {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--text-dark);
+  font-weight: 950;
 }
 
 .about__method ol {
   display: grid;
-  gap: 0.8rem;
-  margin: 1rem 0 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .about__method li {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  min-height: 4rem;
-  padding: 0.8rem;
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  display: grid;
+  gap: 0.55rem;
+  min-height: 8rem;
+  padding: 0.85rem;
   border-radius: var(--radius);
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--ink);
+  color: var(--text);
 }
 
-.about__method li span {
-  display: inline-grid;
-  flex: 0 0 auto;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #06111f;
-  font-weight: 900;
+.about__method li strong {
+  color: var(--mint);
+  font-size: 0.82rem;
 }
 
 .about__method li p {
   margin: 0;
-  color: #e2e8f0;
-  font-weight: 800;
+  font-weight: 900;
+  line-height: 1.18;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .about__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about__portrait {
+    min-height: 20rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .about__method ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 460px) {
+  .about__method ol {
     grid-template-columns: 1fr;
   }
 }

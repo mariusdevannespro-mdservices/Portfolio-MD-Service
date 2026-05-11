@@ -1,6 +1,6 @@
 .footer {
-  border-top: 1px solid rgba(148, 163, 184, 0.14);
-  background: #0b1120;
+  border-top: 1px solid rgba(245, 241, 232, 0.1);
+  background: #090b10;
   padding: 2rem 1.5rem;
 }
 
@@ -15,14 +15,14 @@
 
 .footer strong {
   display: block;
-  color: var(--text);
-  font-size: 1.05rem;
   margin-bottom: 0.25rem;
+  color: var(--paper);
+  font-size: 1.05rem;
 }
 
 .footer p {
   margin: 0;
-  color: var(--muted);
+  color: #8c99aa;
 }
 
 .footer__copyright {

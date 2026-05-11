@@ -5,12 +5,12 @@ function Skills() {
   return (
     <section className="skills section" id="competences">
       <div className="section-container skills__layout">
-        <div className="section-heading skills__heading">
+        <div className="skills__panel">
           <p className="section-kicker">Compétences</p>
-          <h2 className="section-title">Une base technique solide pour des projets concrets</h2>
+          <h2 className="section-title">Une boîte à outils large, utilisée avec discernement.</h2>
           <p className="section-description">
-            J’utilise des technologies fiables et adaptées pour créer des sites,
-            applications, intégrations API et automatisations simples à maintenir.
+            Je choisis la technologie en fonction du projet : visibilité, automatisation,
+            gestion de données, interface métier ou connexion API.
           </p>
         </div>
 

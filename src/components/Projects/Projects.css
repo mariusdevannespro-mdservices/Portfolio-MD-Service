@@ -1,46 +1,57 @@
 .projects {
   background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.2), rgba(17, 24, 39, 0.68)),
-    #0f172a;
+    linear-gradient(180deg, rgba(245, 241, 232, 0.04), rgba(13, 15, 22, 0)),
+    var(--ink-soft);
 }
 
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 25rem;
-  padding: 1.25rem;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  min-height: 23rem;
+  padding: 1.1rem;
+  border: 1px solid rgba(245, 241, 232, 0.13);
   border-radius: var(--radius);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
-    rgba(17, 24, 39, 0.86);
-  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.18);
+    linear-gradient(180deg, rgba(245, 241, 232, 0.08), rgba(245, 241, 232, 0.02)),
+    rgba(13, 15, 22, 0.62);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
   transition:
     transform 180ms ease,
-    border-color 180ms ease;
+    border-color 180ms ease,
+    background 180ms ease;
 }
 
-.project-card:hover {
-  border-color: rgba(99, 102, 241, 0.45);
-  transform: translateY(-4px);
+.project-card::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.28rem;
+  background: linear-gradient(90deg, var(--cyan), var(--mint), var(--amber), var(--coral));
+  content: '';
+  opacity: 0.72;
 }
 
+.project-card:hover,
 .project-card--active {
-  border-color: rgba(56, 189, 248, 0.62);
+  border-color: rgba(45, 212, 191, 0.46);
   background:
-    linear-gradient(180deg, rgba(56, 189, 248, 0.08), rgba(255, 255, 255, 0)),
-    rgba(17, 24, 39, 0.92);
+    linear-gradient(180deg, rgba(45, 212, 191, 0.11), rgba(245, 241, 232, 0.025)),
+    rgba(13, 15, 22, 0.78);
+  transform: translateY(-4px);
 }
 
 .project-card__top {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.8rem;
   margin-bottom: 2rem;
 }
@@ -48,25 +59,25 @@
 .project-card__badge {
   padding: 0.34rem 0.6rem;
   border-radius: 999px;
-  background: rgba(34, 197, 94, 0.12);
-  color: #86efac;
-  font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  background: rgba(245, 241, 232, 0.1);
+  color: #fef08a;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .project-card__line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(56, 189, 248, 0.45), transparent);
+  background: linear-gradient(90deg, rgba(245, 241, 232, 0.32), transparent);
 }
 
 .project-card h3 {
   margin: 0 0 0.8rem;
   color: var(--text);
-  font-size: 1.18rem;
-  line-height: 1.2;
+  font-size: 1.25rem;
+  line-height: 1.12;
 }
 
 .project-card p {
@@ -77,17 +88,17 @@
 .project-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.45rem;
   margin-top: auto;
 }
 
 .project-card__tags span {
-  padding: 0.45rem 0.55rem;
-  border: 1px solid rgba(148, 163, 184, 0.17);
+  padding: 0.42rem 0.55rem;
+  border: 1px solid rgba(245, 241, 232, 0.13);
   border-radius: 999px;
   color: #dbeafe;
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.76rem;
+  font-weight: 900;
 }
 
 .project-card__button {
@@ -95,14 +106,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 2.75rem;
-  margin-top: 1.25rem;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  min-height: 2.85rem;
+  margin-top: 1.1rem;
+  border: 1px solid rgba(45, 212, 191, 0.36);
   border-radius: var(--radius);
-  background: rgba(56, 189, 248, 0.1);
-  color: #e0f2fe;
+  background: rgba(45, 212, 191, 0.1);
+  color: #b9fff6;
   cursor: pointer;
-  font-weight: 900;
+  font-weight: 950;
   transition:
     background 180ms ease,
     border-color 180ms ease,
@@ -110,17 +121,17 @@
 }
 
 .project-card__button:hover {
-  border-color: rgba(56, 189, 248, 0.66);
-  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(45, 212, 191, 0.72);
+  background: rgba(45, 212, 191, 0.16);
   transform: translateY(-2px);
 }
 
 .projects__preview {
   overflow: hidden;
   margin-top: clamp(1.5rem, 4vw, 3rem);
-  border: 1px solid rgba(56, 189, 248, 0.26);
+  border: 1px solid rgba(245, 241, 232, 0.15);
   border-radius: var(--radius);
-  background: rgba(15, 23, 42, 0.92);
+  background: #0b0d13;
   box-shadow: var(--shadow);
 }
 
@@ -130,8 +141,8 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1.15rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
-  background: rgba(2, 6, 23, 0.46);
+  border-bottom: 1px solid rgba(245, 241, 232, 0.12);
+  background: rgba(13, 15, 22, 0.92);
 }
 
 .projects__preview-bar div {
@@ -140,9 +151,9 @@
 }
 
 .projects__preview-bar span {
-  color: var(--accent);
+  color: var(--mint);
   font-size: 0.75rem;
-  font-weight: 900;
+  font-weight: 950;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -155,12 +166,12 @@
 .projects__preview-bar button {
   min-height: 2.4rem;
   padding: 0 0.85rem;
-  border: 1px solid rgba(148, 163, 184, 0.22);
+  border: 1px solid rgba(245, 241, 232, 0.18);
   border-radius: var(--radius);
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(245, 241, 232, 0.06);
   color: #e2e8f0;
   cursor: pointer;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .example-page {
@@ -183,7 +194,7 @@
   padding: 0.42rem 0.72rem;
   border-radius: 999px;
   font-size: 0.75rem;
-  font-weight: 900;
+  font-weight: 950;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -220,7 +231,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   color: #52616b;
-  font-weight: 800;
+  font-weight: 850;
 }
 
 .artisan-site__hero {
@@ -260,7 +271,7 @@
   border-radius: var(--radius);
   background: #d97706;
   color: #fffaf0;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .artisan-site__mosaic {
@@ -301,7 +312,7 @@
 
 .artisan-site__services span {
   color: #d97706;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .artisan-site__services h4,
@@ -368,7 +379,7 @@
   padding: 0.78rem 0.85rem;
   border-radius: var(--radius);
   color: #9fb2c8;
-  font-weight: 800;
+  font-weight: 850;
 }
 
 .dashboard-app__sidebar span:nth-child(2) {
@@ -391,7 +402,7 @@
 .dashboard-app__topbar p {
   margin: 0;
   color: #7dd3fc;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .dashboard-app__topbar h3 {
@@ -406,7 +417,7 @@
   border-radius: var(--radius);
   background: #38bdf8;
   color: #06111f;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .dashboard-app__stats {
@@ -434,7 +445,7 @@
 .dashboard-app__stats small,
 .dashboard-app__table small {
   color: #9fb2c8;
-  font-weight: 800;
+  font-weight: 850;
 }
 
 .dashboard-app__stats strong {
@@ -479,12 +490,12 @@
 .dashboard-app__table span,
 .dashboard-app__table strong {
   color: #f8fafc;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .example-page--booking {
   background:
-    radial-gradient(circle at top right, rgba(124, 58, 237, 0.12), transparent 18rem),
+    linear-gradient(135deg, rgba(15, 118, 110, 0.08), transparent 24rem),
     #f7fbff;
   color: #18212f;
 }
@@ -505,7 +516,7 @@
   border-radius: 999px;
   background: #0f766e;
   color: #ecfeff;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .booking-app__hero {
@@ -548,7 +559,7 @@
 .booking-app__card span,
 .booking-app__card small {
   color: #64748b;
-  font-weight: 800;
+  font-weight: 850;
 }
 
 .booking-app__card strong {
@@ -623,8 +634,8 @@
 
 .example-page--saas {
   background:
-    radial-gradient(circle at 18% 20%, rgba(251, 113, 133, 0.18), transparent 16rem),
-    radial-gradient(circle at 80% 16%, rgba(250, 204, 21, 0.22), transparent 18rem),
+    linear-gradient(135deg, rgba(251, 113, 133, 0.18), transparent 16rem),
+    linear-gradient(45deg, rgba(250, 204, 21, 0.22), transparent 18rem),
     #fff7f2;
   color: #191026;
 }
@@ -643,7 +654,7 @@
   min-height: 2.75rem;
   padding: 0 1rem;
   border-radius: var(--radius);
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .saas-site__nav button,
@@ -712,7 +723,7 @@
 
 .saas-site__product span {
   color: #5b5068;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .saas-site__product strong {
@@ -765,7 +776,7 @@
 
 .saas-site__pricing span {
   color: #be123c;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 @media (max-width: 1100px) {
